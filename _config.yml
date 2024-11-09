@@ -12,9 +12,9 @@ title                    : "Yixing Chen / Polaris_Dane"
 title_separator          : "-"
 name                     : &name "Yixing Chen"
 description              : &description "personal description"
-url                      : https://polarisdane.github.io/Polaris_Dane.github.io/
+url                      : 
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
-repository               : "PolarisDane/Polaris_Dane.github.io"
+repository               : 
 
 # Site Author - The following control what appear as part of the author content on the side bar.
 #               If a field is blank the icon and link will not appear, otherwise it will be shown.
