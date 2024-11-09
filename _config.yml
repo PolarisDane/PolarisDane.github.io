@@ -21,7 +21,7 @@ repository               : "PolarisDane/Polaris_Dane.github.io"
 #               Additional customization can be done by editing /_includes/author-profile.html
 author:
   # Biographic information
-  avatar           : "profile.png"
+  avatar           : "picme.png"
   name             : "Yixing Chen"
   pronouns         : # example: "she/her"  
   bio              : "Loving the world and seeking more"
