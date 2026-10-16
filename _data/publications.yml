@@ -1,0 +1,150 @@
+# 论文列表，按时间倒序排列。Publications 页面会按 year 自动分组。
+# - authors 中与 _config.yml 里 author.name 完全一致的名字会自动加粗；共同一作请手动写 "*"。
+# - venue：已接收写会议/期刊名（如 "EMNLP 2026"，显示为彩色标签），否则写 "Under review" / "Preprint"（灰色标签）。
+# - selected: true 的论文会同时出现在首页 "Selected Publications"。
+# - image 可选，放在 /images/papers/ 下；不填则不显示缩略图。
+# - links 可任意增减，name 为按钮文字。
+# - abstract / bibtex 可选，填了会在 Publications 页出现可展开的 Abstract / BibTeX 按钮。
+- title: "Co-Evolving Acting and Forecasting for Language Agents"
+  authors: "Haofei Yu*, Yixing Chen*, Yining Zhao, Xuyan Ye, Yuxiang Liu, Zhigang Hua, Yan Xie, Shuang Yang, Jiaxuan You"
+  venue: "Under review"
+  year: 2026
+  image: /images/papers/cope.jpg
+  selected: true
+  links:
+    - name: Paper
+      url: "https://arxiv.org/abs/2610.20597"
+    - name: Code
+      url: "https://github.com/ulab-uiuc/CoPE"
+  abstract: >-
+    Training language agents is bottlenecked by the high cost of long-horizon rollouts, yet standard agentic
+    reinforcement learning (RL) learns only from a terminal scalar reward, leaving the supervision in intermediate
+    steps largely unused. Prior work exploits this supervision through value targets that estimate per-step success
+    probabilities or observation targets that fit environment response. Both are hard to construct well: (1) value
+    targets come from the same single scalar signal for each step in the trajectory, and (2) observation targets,
+    such as web pages and terminal logs, are long and noisy and reach only one step ahead. We propose CoPE, which
+    adds a third kind of multi-step action targets. On successful on-policy trajectories, CoPE trains the policy
+    backbone to generate the action sequences that follows each history. Each action is also supervised when
+    forecast from the preceding histories, forming a temporal ensemble that the shared backbone absorbs during
+    training, and this enables acting and forecasting to co-evolve. The policy still acts one step at a time at
+    inference, with no overhead. Across five benchmarks (ALFWorld, ScienceWorld, WebShop, τ²-bench, and AppWorld),
+    CoPE (1) achieves stronger aggregate performance than GRPO and RL baselines with predictive auxiliary targets
+    across simulated environments, while improving overall performance on both realistic applications; (2) delivers
+    up to 1.9× and 2.0× higher sample efficiency than ECHO and GRPO, respectively, on ScienceWorld; and (3) achieves
+    these gains with a single policy backbone, without additional models, separate pretraining, or inference overhead.
+  bibtex: |-
+    @misc{yu2026coevolvingactingforecastinglanguage,
+      title={Co-Evolving Acting and Forecasting for Language Agents},
+      author={Haofei Yu and Yixing Chen and Yining Zhao and Xuyan Ye and Yuxiang Liu and Zhigang Hua and Yan Xie and Shuang Yang and Jiaxuan You},
+      year={2026},
+      eprint={2610.20597},
+      archivePrefix={arXiv},
+      primaryClass={cs.AI},
+      url={https://arxiv.org/abs/2610.20597}
+    }
+
+- title: "Multi-Agent Evolve: LLM Self-Improve through Co-evolution"
+  authors: "Yixing Chen*, Yiding Wang*, Siqi Zhu, Haofei Yu, Tao Feng, Muhan Zhang, Mostofa Patwary, Jiaxuan You"
+  venue: "EMNLP 2026"
+  year: 2026
+  image: /images/papers/mae.jpg
+  selected: true
+  links:
+    - name: Paper
+      url: "https://arxiv.org/abs/2510.23595"
+    - name: Code
+      url: "https://github.com/ulab-uiuc/Multi-agent-evolve"
+  abstract: >-
+    Reinforcement Learning (RL) has demonstrated significant potential in enhancing the reasoning capabilities of
+    large language models (LLMs). However, the success of RL for LLMs heavily relies on human-curated datasets and
+    verifiable rewards, which limit their scalability and generality. Recent Self-Play RL methods, inspired by the
+    success of the paradigm in games and Go, aim to enhance LLM reasoning capabilities without human-annotated data.
+    However, their methods primarily depend on a grounded environment for feedback (e.g., a Python interpreter or a
+    game engine); extending them to general domains remains challenging. To address these challenges, we propose
+    Multi-Agent Evolve (MAE), a framework that enables LLMs to self-evolve in solving diverse tasks, including
+    mathematics, reasoning, and general knowledge Q&A. The core design of MAE is based on a triplet of interacting
+    agents (Proposer, Solver, Judge) that are instantiated from a single LLM, and applies reinforcement learning to
+    optimize their behaviors. The Proposer generates questions, the Solver attempts solutions, and the Judge
+    evaluates both while co-evolving. Experiments on Qwen2.5-3B-Instruct demonstrate that MAE achieves an average
+    improvement of 4.54% on multiple benchmarks. These results highlight MAE as a scalable, data-efficient method
+    for enhancing the general reasoning abilities of LLMs with minimal reliance on human-curated supervision.
+  bibtex: |-
+    @misc{chen2025multiagentevolvellmselfimprove,
+      title={Multi-Agent Evolve: LLM Self-Improve through Co-evolution},
+      author={Yixing Chen and Yiding Wang and Siqi Zhu and Haofei Yu and Tao Feng and Muhan Zhang and Mostofa Patwary and Jiaxuan You},
+      year={2025},
+      eprint={2510.23595},
+      archivePrefix={arXiv},
+      primaryClass={cs.AI},
+      url={https://arxiv.org/abs/2510.23595}
+    }
+
+- title: "ArtGS: 3D Gaussian Splatting for Interactive Visual-Physical Modeling and Manipulation of Articulated Objects"
+  authors: "Qiaojun Yu*, Xibin Yuan*, Yu Jiang*, Junting Chen, Dongzhe Zheng, Ce Hao, Yang You, Yixing Chen, Yao Mu, Liu Liu, Cewu Lu"
+  venue: "IROS 2025"
+  year: 2025
+  image: /images/papers/artgs.jpg
+  selected: false
+  links:
+    - name: Paper
+      url: "https://arxiv.org/abs/2507.02600"
+    - name: Project
+      url: "https://sites.google.com/view/artgs/home"
+  abstract: >-
+    Articulated object manipulation remains a critical challenge in robotics due to the complex kinematic constraints
+    and the limited physical reasoning of existing methods. In this work, we introduce ArtGS, a novel framework that
+    extends 3D Gaussian Splatting (3DGS) by integrating visual-physical modeling for articulated object understanding
+    and interaction. ArtGS begins with multi-view RGB-D reconstruction, followed by reasoning with a vision-language
+    model (VLM) to extract semantic and structural information, particularly the articulated bones. Through dynamic,
+    differentiable 3DGS-based rendering, ArtGS optimizes the parameters of the articulated bones, ensuring physically
+    consistent motion constraints and enhancing the manipulation policy. By leveraging dynamic Gaussian splatting,
+    cross-embodiment adaptability, and closed-loop optimization, ArtGS establishes a new framework for efficient,
+    scalable, and generalizable articulated object modeling and manipulation. Experiments conducted in both
+    simulation and real-world environments demonstrate that ArtGS significantly outperforms previous methods in
+    joint estimation accuracy and manipulation success rates across a variety of articulated objects.
+  bibtex: |-
+    @misc{yu2025artgs3dgaussiansplattinginteractive,
+      title={ArtGS:3D Gaussian Splatting for Interactive Visual-Physical Modeling and Manipulation of Articulated Objects},
+      author={Qiaojun Yu and Xibin Yuan and Yu jiang and Junting Chen and Dongzhe Zheng and Ce Hao and Yang You and Yixing Chen and Yao Mu and Liu Liu and Cewu Lu},
+      year={2025},
+      eprint={2507.02600},
+      archivePrefix={arXiv},
+      primaryClass={cs.RO},
+      url={https://arxiv.org/abs/2507.02600}
+    }
+
+- title: "KETA: Kinematic-Phrases-Enhanced Text-to-Motion Generation via Fine-grained Alignment"
+  authors: "Yu Jiang*, Yixing Chen*, Xingyang Li*"
+  venue: "IJCNN 2025"
+  year: 2025
+  image: /images/papers/keta.jpg
+  selected: false
+  links:
+    - name: Paper
+      url: "https://arxiv.org/abs/2501.15058"
+  abstract: >-
+    Motion synthesis plays a vital role in various fields of artificial intelligence. Among the various conditions of
+    motion generation, text can describe motion details elaborately and is easy to acquire, making text-to-motion
+    (T2M) generation important. State-of-the-art T2M techniques mainly leverage diffusion models to generate motions
+    with text prompts as guidance, tackling the many-to-many nature of T2M tasks. However, existing T2M approaches
+    face challenges, given the gap between the natural language domain and the physical domain, making it difficult
+    to generate motions fully consistent with the texts. We leverage kinematic phrases (KP), an intermediate
+    representation that bridges these two modalities, to solve this. Our proposed method, KETA, decomposes the given
+    text into several decomposed texts via a language model. It trains an aligner to align decomposed texts with the
+    KP segments extracted from the generated motions. Thus, it's possible to restrict the behaviors for
+    diffusion-based T2M models. During the training stage, we deploy the text-KP alignment loss as an auxiliary goal
+    to supervise the models. During the inference stage, we refine our generated motions for multiple rounds in our
+    decoder structure, where we compute the text-KP distance as the guidance signal in each new round. Experiments
+    demonstrate that KETA achieves up to 1.19x, 2.34x better R precision and FID value on both backbones of the base
+    model, motion diffusion model. Compared to a wide range of T2M generation models, KETA achieves either the best or
+    the second-best performance.
+  bibtex: |-
+    @misc{jiang2025ketakinematicphrasesenhancedtexttomotiongeneration,
+      title={KETA: Kinematic-Phrases-Enhanced Text-to-Motion Generation via Fine-grained Alignment},
+      author={Yu Jiang and Yixing Chen and Xingyang Li},
+      year={2025},
+      eprint={2501.15058},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2501.15058}
+    }

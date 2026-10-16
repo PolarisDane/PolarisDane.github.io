@@ -1,0 +1,2 @@
+{%- assign text = include.item.text | markdownify | remove: '<p>' | remove: '</p>' | strip -%}
+<li class="news__item"><span class="news__date">{{ include.item.date }}</span><span class="news__text">{% if include.item.first_author %}<span class="news__mark">{{ text }}</span>{% else %}{{ text }}{% endif %}</span></li>

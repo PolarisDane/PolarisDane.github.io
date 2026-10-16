@@ -1,0 +1,16 @@
+<div class="timeline">
+{%- for entry in include.items -%}
+<div class="timeline__entry">
+{%- if entry.logo -%}<img class="timeline__logo" src="{{ entry.logo | relative_url }}" alt="{{ entry.org | escape }}">{%- else -%}<span class="timeline__logo timeline__logo--empty"></span>{%- endif -%}
+<div class="timeline__body">
+<div class="timeline__head"><span class="timeline__org">{% if entry.url %}<a href="{{ entry.url }}">{{ entry.org }}</a>{% else %}{{ entry.org }}{% endif %}</span><span class="timeline__period">{{ entry.period }}</span></div>
+{%- if entry.role -%}<div class="timeline__role">{{ entry.role }}</div>{%- endif -%}
+{%- if entry.details -%}
+<ul class="timeline__details">
+{%- for d in entry.details -%}<li>{{ d | markdownify | remove: '<p>' | remove: '</p>' | strip }}</li>{%- endfor -%}
+</ul>
+{%- endif -%}
+</div>
+</div>
+{%- endfor -%}
+</div>

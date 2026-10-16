@@ -1,0 +1,33 @@
+{%- comment -%}
+  Params: pub (entry of site.data.publications), show_year (append year after venue),
+          full (show Abstract / BibTeX toggles; used on the Publications page).
+{%- endcomment -%}
+{%- assign pub = include.pub -%}
+{%- capture me %}<strong class="pub__me">{{ site.author.name }}</strong>{% endcapture -%}
+{%- assign venue_lc = pub.venue | downcase -%}
+{%- if venue_lc contains "review" or venue_lc contains "preprint" or venue_lc contains "submitted" -%}{%- assign pending = true -%}{%- else -%}{%- assign pending = false -%}{%- endif -%}
+{%- assign year_str = pub.year | append: '' -%}
+{%- assign pub_id = pub.title | truncatewords: 6, '' | slugify -%}
+<div class="pub{% if pub.image %} pub--with-image{% endif %}" id="pub-{{ pub_id }}">
+<div class="pub__main">
+{%- if pub.image -%}
+<div class="pub__thumb"><img src="{{ pub.image | relative_url }}" alt="{{ pub.title | escape }}" loading="lazy"></div>
+{%- endif -%}
+<div class="pub__body">
+<div class="pub__title">{{ pub.title }}</div>
+<div class="pub__authors">{{ pub.authors | replace: site.author.name, me }}</div>
+<div class="pub__venue"><span class="pub__badge{% if pending %} pub__badge--pending{% endif %}">{{ pub.venue }}{% if include.show_year and pub.year %}{% unless pub.venue contains year_str %}, {{ pub.year }}{% endunless %}{% endif %}</span></div>
+<div class="pub__links">
+{%- for link in pub.links -%}{% if link.url %}<a class="pub__link" href="{{ link.url }}">{{ link.name }}</a>{% endif %}{%- endfor -%}
+{%- if include.full and pub.abstract -%}<button type="button" class="pub__link pub__toggle" aria-expanded="false" aria-controls="abs-{{ pub_id }}">Abstract</button>{%- endif -%}
+{%- if include.full and pub.bibtex -%}<button type="button" class="pub__link pub__toggle" aria-expanded="false" aria-controls="bib-{{ pub_id }}">BibTeX</button>{%- endif -%}
+</div>
+</div>
+</div>
+{%- if include.full and pub.abstract -%}
+<div class="pub__panel" id="abs-{{ pub_id }}" hidden><p>{{ pub.abstract }}</p></div>
+{%- endif -%}
+{%- if include.full and pub.bibtex -%}
+<div class="pub__panel pub__panel--bib" id="bib-{{ pub_id }}" hidden><button type="button" class="pub__copy">Copy</button><pre><code>{{ pub.bibtex | escape }}</code></pre></div>
+{%- endif -%}
+</div>

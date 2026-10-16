@@ -5,32 +5,43 @@ permalink: /publications/
 author_profile: true
 ---
 
-{% if site.author.googlescholar %}
-  <div class="wordwrap">You can also find my articles on <a href="{{site.author.googlescholar}}">my Google Scholar profile</a>.</div>
-{% endif %}
+<div class="pub-intro">
+<p>* denotes equal contribution.</p>
+{%- if site.author.googlescholar or site.author.semantic or site.author.dblp -%}
+<p class="pub-intro__profiles">
+{%- if site.author.googlescholar -%}<a class="pub__link" href="{{ site.author.googlescholar }}">Google Scholar</a>{%- endif -%}
+{%- if site.author.semantic -%}<a class="pub__link" href="{{ site.author.semantic }}">Semantic Scholar</a>{%- endif -%}
+{%- if site.author.dblp -%}<a class="pub__link" href="{{ site.author.dblp }}">DBLP</a>{%- endif -%}
+</p>
+{%- endif -%}
+</div>
 
-{% include base_path %}
+{% assign years = site.data.publications | group_by: "year" %}
+{% for group in years %}
+<h2 id="y{{ group.name }}" class="archive__subtitle">{{ group.name }}</h2>
+{% for pub in group.items %}{% include home/pub-item.html pub=pub full=true %}{% endfor %}
+{% endfor %}
 
-<!-- New style rendering if publication categories are defined -->
-{% if site.publication_category %}
-  {% for category in site.publication_category  %}
-    {% assign title_shown = false %}
-    {% for post in site.publications reversed %}
-      {% if post.category != category[0] %}
-        {% continue %}
-      {% endif %}
-      {% unless title_shown %}
-        <h2>{{ category[1].title }}</h2><hr />
-        {% assign title_shown = true %}
-      {% endunless %}
-      {% include archive-single.html %}
-    {% endfor %}
-  {% endfor %}
-{% else %}
-  {% for post in site.publications reversed %}
-    {% include archive-single.html %}
-  {% endfor %}
-{% endif %}
-
-
-
+<script>
+  document.addEventListener('click', function (e) {
+    var toggle = e.target.closest('.pub__toggle');
+    if (toggle) {
+      var panel = document.getElementById(toggle.getAttribute('aria-controls'));
+      var open = toggle.getAttribute('aria-expanded') === 'true';
+      // only one panel open per paper
+      toggle.parentNode.querySelectorAll('.pub__toggle').forEach(function (t) {
+        t.setAttribute('aria-expanded', 'false');
+        document.getElementById(t.getAttribute('aria-controls')).hidden = true;
+      });
+      if (!open) { toggle.setAttribute('aria-expanded', 'true'); panel.hidden = false; }
+      return;
+    }
+    var copy = e.target.closest('.pub__copy');
+    if (copy && navigator.clipboard) {
+      navigator.clipboard.writeText(copy.nextElementSibling.textContent).then(function () {
+        copy.textContent = 'Copied';
+        setTimeout(function () { copy.textContent = 'Copy'; }, 1500);
+      });
+    }
+  });
+</script>

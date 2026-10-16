@@ -1,0 +1,14 @@
+# 教育经历，按时间倒序排列。logo 可选，放在 /images/logos/ 下。
+- org: "University of California San Diego"
+  url: "https://ucsd.edu/"
+  logo: /images/logos/ucsd.png
+  period: "2026 – Present"
+  role: "Ph.D. Student"
+  details:
+    - "Advisor: Prof. [Lianhui Qin](https://lianhui.ucsd.edu/)"
+
+- org: "Shanghai Jiao Tong University"
+  url: "https://www.sjtu.edu.cn/"
+  logo: /images/logos/sjtu.png
+  period: "2022 – 2026"
+  role: "B.Eng. in Computer Science, ACM Honors Class"

@@ -1,0 +1,38 @@
+# 科研 / 实习经历，按时间倒序排列。logo 可选，放在 /images/logos/ 下。
+# details 每行一条，支持 Markdown。
+- org: "Q-Lab, UC San Diego"
+  url: "https://lianhui.ucsd.edu/"
+  logo: /images/logos/qlab.png
+  period: "2026.09 – Present"
+  role: "Ph.D. Student"
+  details:
+    - "Advisor: Prof. [Lianhui Qin](https://lianhui.ucsd.edu/)"
+    - "Topics: World Models, AI Interaction with the World, Reinforcement Learning, Reasoning"
+
+- org: "Spirit AI"
+  url: "https://www.spirit-ai.com/"
+  logo: /images/logos/spirit.png
+  period: "2026.06 – 2026.08"
+  role: "Research Intern"
+  details:
+    - "Topic: Robotics Simulation"
+    - "Debugged critical issues in the company's codebase"
+    - "Policy contributor to [RoboDojo](https://arxiv.org/abs/2607.04434), a unified sim-and-real benchmark for generalist robot manipulation policies"
+
+- org: "U Lab, University of Illinois Urbana-Champaign"
+  url: "https://ulab-uiuc.github.io/"
+  logo: /images/logos/ulab.png
+  period: "2025.08 – 2025.12"
+  role: "Research Intern"
+  details:
+    - "Advisor: Prof. Jiaxuan You"
+    - "Topics: LLM, Multi-Agent Systems"
+
+- org: "RHOS Lab, Shanghai Jiao Tong University"
+  url: "https://mvig-rhos.com/"
+  logo: /images/logos/rhos.png
+  period: "2024.07 – 2026.06"
+  role: "Research Intern"
+  details:
+    - "Advisors: Prof. [Cewu Lu](https://www.mvig.org/) and Prof. [Yonglu Li](https://dirtyharrylyl.github.io/)"
+    - "Topics: Robot Manipulation, Benchmarking"

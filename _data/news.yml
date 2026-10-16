@@ -1,0 +1,11 @@
+# 最新动态，按时间倒序排列（最新的放最上面）。
+# 首页默认展示前 5 条，其余折叠在 "Show more" 里。
+# text 支持 Markdown（链接、加粗等）；first_author: true 会给这条加上高亮标记。
+- date: "2026.10"
+  text: "We released [CoPE](https://arxiv.org/abs/2610.20597) on co-evolving acting and forecasting for language agents."
+  first_author: true
+- date: "2026.09"
+  text: "I started my Ph.D. at **UC San Diego**, advised by Prof. [Lianhui Qin](https://lianhui.ucsd.edu/)."
+- date: "2026.08"
+  text: "[Multi-Agent Evolve](https://arxiv.org/abs/2510.23595) was accepted to **EMNLP 2026**!"
+  first_author: true

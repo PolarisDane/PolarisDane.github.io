@@ -1,0 +1,19 @@
+{%- assign shown = include.shown | default: 5 -%}
+{%- assign items = site.data.news -%}
+<div class="news">
+<ul class="news__list">
+{%- for item in items limit: shown -%}
+{% include home/news-item.html item=item %}
+{%- endfor -%}
+</ul>
+{%- if items.size > shown -%}
+<details class="news__more">
+<summary><span class="news__show">Show more</span><span class="news__hide">Show less</span></summary>
+<ul class="news__list">
+{%- for item in items offset: shown -%}
+{% include home/news-item.html item=item %}
+{%- endfor -%}
+</ul>
+</details>
+{%- endif -%}
+</div>
