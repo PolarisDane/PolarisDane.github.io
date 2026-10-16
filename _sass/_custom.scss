@@ -195,14 +195,19 @@ $accent-soft: rgba(15, 118, 110, 0.12);
 }
 .timeline__logo--empty { background: $lighter-gray; border-radius: 6px; }
 .timeline__body { flex: 1; min-width: 0; line-height: 1.5; }
+/* date always in the same spot: right column on wide screens, own line on narrow ones */
 .timeline__head {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: baseline;
   gap: 0 1em;
 }
 .timeline__org { font-weight: 600; }
-.timeline__period { font-size: 0.88em; color: $gray; }
+.timeline__period { font-size: 0.88em; color: $gray; white-space: nowrap; text-align: right; }
+@media (max-width: 720px) {
+  .timeline__head { grid-template-columns: minmax(0, 1fr); }
+  .timeline__period { text-align: left; }
+}
 .timeline__role { font-style: italic; }
 .timeline__details {
   margin: 0.2em 0 0;
